@@ -16,7 +16,6 @@ const reducer = (state = defaultState, action) => {
     case 'ADD_CASH': 
     return {...state, cash: state.cash + action.payload}
     case 'GET_CASH': return {...state, cash: state.cash - action.payload}
-    case 'GET_TOTAL': return {state}
     default: return state;
   }
 }
