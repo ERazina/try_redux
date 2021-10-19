@@ -1,6 +1,7 @@
 import './App.css';
 import {useDispatch, useSelector} from 'react-redux';
 import {addCustomerAction, removeCustomerAction} from './store/customerReducer';
+import {addCashAction, getCashAction} from './store/cashReducer';
 
 
 function App() {
@@ -11,17 +12,11 @@ function App() {
 
   const addCash = (amount) => {
     // dispatcher takes action - object with typw and payload
-    dispatch({
-      type: 'ADD_CASH',
-      payload: amount
-    });
+    dispatch(addCashAction(amount));
   }
 
   const getCash = (amount) => {
-    dispatch({
-      type: 'GET_CASH',
-      payload: amount
-    })
+    dispatch(getCashAction(amount));
   }
 
   const addNewCustomer = (name) => {
