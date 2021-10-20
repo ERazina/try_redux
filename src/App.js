@@ -2,6 +2,7 @@ import './App.css';
 import {useDispatch, useSelector} from 'react-redux';
 import {addCustomerAction, removeCustomerAction} from './store/customerReducer';
 import {addCashAction, getCashAction} from './store/cashReducer';
+import {getManyCustomers} from './asyncActions/customers';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
       <button onClick={() => addCash(Number(prompt('how much you want to add?', 0)))}>Add cash</button>
       <button onClick={() => getCash(Number(prompt('how much you wat to get?', 0)))}>Get cash</button>
       <button onClick={() => addNewCustomer(prompt('Customer name'))}>Add new customer</button>
+      <button onClick={() => dispatch(getManyCustomers())}>Get customers from DB</button>
       <h2>Customers:</h2>
       {customers.length !== 0 ? 
         customers.map(customer => <div>{customer.name}<button onClick={() => deleteCustomer(customer.id)}>Remove customer</button></div>)
